@@ -1,0 +1,55 @@
+#include "NPC.h"
+#include "Node.h"
+#include <fstream>
+#include <string>
+#include <iostream>
+
+using namespace std;
+string tolower(string& c){for(int i=0;i<c.length();i++){c[i]=tolower(c[i]);}return c;}
+
+NPC::NPC(string name) : m_Name(name){}
+
+string NPC::GetName(){
+    return m_Name;
+}
+
+void NPC::LoadDialogue(string NPC_Name){
+    ifstream diaFile("dialogue.txt");
+    string line;
+    bool found_npc_dialogue = false;
+    string End_of_Dialogue = "newdialogue";
+
+    m_Dialogue.clear();
+
+    if(diaFile.is_open()){
+        while(getline(diaFile, line)){
+            if((line == End_of_Dialogue) && found_npc_dialogue){
+                return;
+            }
+
+            if(found_npc_dialogue){
+                m_Dialogue.push_back(line);
+            }
+
+            if(line == tolower(NPC_Name)){
+                found_npc_dialogue = true;
+            }
+        }
+    }else {cout<<"Couldn't open dialogue file...";}
+}
+
+void NPC::BuildDialogueTree(){
+    //std::vector<string>::iterator roottext = m_Dialogue.begin();
+
+    std::vector<Node> *nodes;
+
+    for(std::vector<string>::iterator iter = m_Dialogue.begin(); iter != m_Dialogue.end(); iter++){
+        Node tempnode = new Node(*iter);
+        nodes.push_back(tempnode);
+    }
+}
+
+void NPC::Talk(){
+    this->LoadDialogue(m_Name);
+    this->BuildDialogueTree();
+}

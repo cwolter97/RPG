@@ -1,0 +1,22 @@
+bel drock
+*Hey (:
+**Hi.
+***What's Up
+****Nothing.
+*****ACTION:CLOSECHAT
+****Nothing, you?
+*****Just trying to talk to you...
+******Cool.
+*******ACTION:CLOSECHAT
+**Heyyy (;
+***how YOU doin ;)
+****im good, you :)
+*****just talking to you ;)
+******cool :)
+*******anything you want to see? ;)
+********A SWORD THAT CAN KILL ANYTHING
+*********ACTION:GIVE:HUGESWORD
+********Dank Memes.
+*********ACTION:GIVE:Hocus Pocus by Focus
+********I want to see you stop talking!
+*********ACTION:CLOSECHAT
