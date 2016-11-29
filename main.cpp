@@ -5,6 +5,7 @@
 
 #include "Player.h"
 #include "Room.h"
+#include "Graphs.h"
 
 using namespace std;
 
