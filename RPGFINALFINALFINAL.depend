@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1480468347 source:c:\users\cody\desktop\final\rpgfinalfinalfinal\src\item.cpp
+	"Item.h"
+	<string>
+
+1480468354 c:\users\cody\desktop\final\rpgfinalfinalfinal\include\item.h
+	<string>
+	<iostream>
+
+1480468396 source:c:\users\cody\desktop\final\rpgfinalfinalfinal\src\node.cpp
+	<Node.h>
+	<string>
+
+1480468381 c:\users\cody\desktop\final\rpgfinalfinalfinal\include\node.h
+	<iostream>
+
+1480468425 source:c:\users\cody\desktop\final\rpgfinalfinalfinal\src\npc.cpp
+	"NPC.h"
+	"Node.h"
+	"Room.h"
+	<fstream>
+	<string>
+	<iostream>
+	<algorithm>
+
+1480468422 c:\users\cody\desktop\final\rpgfinalfinalfinal\include\npc.h
+	<string>
+	<vector>
+	"Item.h"
+
+1480468465 c:\users\cody\desktop\final\rpgfinalfinalfinal\include\room.h
+	"Item.h"
+	"NPC.h"
+	<vector>
+
+1480468446 source:c:\users\cody\desktop\final\rpgfinalfinalfinal\src\player.cpp
+	"Player.h"
+	<string>
+	<vector>
+	<algorithm>
+	<fstream>
+
+1480468443 c:\users\cody\desktop\final\rpgfinalfinalfinal\include\player.h
+	"Item.h"
+	<vector>
+
+1480468468 source:c:\users\cody\desktop\final\rpgfinalfinalfinal\src\room.cpp
+	"Room.h"
+	<vector>
+	<algorithm>
+
+1480468534 source:c:\users\cody\desktop\final\rpgfinalfinalfinal\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	"Player.h"
+	"Room.h"
+	"Graphs.h"
+
+1480468552 c:\users\cody\desktop\final\rpgfinalfinalfinal\include\graphs.h
+	<vector>
+	<stack>
+	<string.h>
+

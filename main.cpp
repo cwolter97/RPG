@@ -45,8 +45,15 @@ int main()
 
     cout << "\nGenerating your first room...\n";
 
+    //start of Map building
+    Graph<Room> WorldMap(5);
+    WorldMap.push(room1);
+    WorldMap.push(room2);
+    WorldMap.attachEdge(0,1);
+
     //pointer to current room so main game loop doesn't have to test for several rooms
     Room room1("Room 1");
+    Room room2("Room 2");
     pCurrentRoom = &room1;
 
     //main game loop
