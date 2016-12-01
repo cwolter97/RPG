@@ -16,6 +16,7 @@ Player loadPlayerFromSave();
 void commandHelp();
 
 enum STATS {NAME, CLASS, MAXHEALTH, HEALTH, MAXMANA, MANA, LEVEL};
+const int MAX_ROOMS = 5;
 
 //overloads the tolower() function to return strings in all lowercase / created compact because not important to game
 string tolower(string c){for(int i=0;i<c.length();i++){c[i]=tolower(c[i]);}return c;}
@@ -45,15 +46,27 @@ int main()
 
     cout << "\nGenerating your first room...\n";
 
-    //start of Map building
-    Graph<Room> WorldMap(5);
+    //create rooms
+    Room room1("Room 1", 0);
+    Room room2("Room 2", 1);
+    Room room3("Room 3", 2);
+    Room room4("Room 4", 3);
+    Room room5("Room 5", 4);
+
+    //create WorldMap and start connecting rooms
+    Graph<Room> WorldMap(MAX_ROOMS);
     WorldMap.push(room1);
     WorldMap.push(room2);
+    WorldMap.push(room3);
+    WorldMap.push(room4);
+    WorldMap.push(room5);
     WorldMap.attachEdge(0,1);
+    WorldMap.attachEdge(0,4);
+    WorldMap.attachEdge(1,4);
+    WorldMap.attachEdge(1,2);
+    WorldMap.attachEdge(2,3);
 
     //pointer to current room so main game loop doesn't have to test for several rooms
-    Room room1("Room 1");
-    Room room2("Room 2");
     pCurrentRoom = &room1;
 
     //main game loop
@@ -87,11 +100,42 @@ int main()
             if(pPlayer->DropItemFromInv(pCommand))
                 pCurrentRoom->AddCollectible(Item(pCommand));
         } else
-        if(pCommand=="move"){
-            //pCurrentRoom->ShowExits();
-            //take input N S E W
-            //find &nextRoom;
-            //pCurrentRoom = &nextRoom ?
+        if(pCommand=="move")
+        { //Show rooms that are connected via WorldMap
+
+            //default to false, change to true if those rooms are connected @ L:113
+            bool ValidMapIndex[MAX_ROOMS] = {};
+
+            cout << "You can go to rooms:\n";
+            for(int i = 0; i < MAX_ROOMS; i++){
+                if(WorldMap.isAttached(pCurrentRoom->m_MapIndex, i)){
+                    cout << i+1 << endl;
+                    ValidMapIndex[i] = true;
+                }
+            }
+
+            string GoToRoom = "";
+            int RoomIndex = -1;
+            bool valid = false;
+            do{
+                cout << "\nGo To Room: ";
+                getline(cin, GoToRoom);
+
+                //input validation
+                if(GoToRoom.length() == 1){
+                    try{
+                        RoomIndex = (GoToRoom[0] - '0') - 1; //this line converts the string char to an int, and uses it. Subtract 1 to use with Array Index
+                        if(ValidMapIndex[RoomIndex] && RoomIndex < MAX_ROOMS){
+                            valid = true;
+                        }
+                        if(isalpha(GoToRoom[0])){ valid = false;}
+                    }catch(int e){}
+                }
+                //if the conversion fails, retry the input
+            }while(!valid);
+
+            //Select and change room here
+
         }else
         if(pCommand=="stats"){
             pPlayer->ShowStats();

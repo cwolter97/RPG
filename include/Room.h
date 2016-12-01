@@ -8,7 +8,7 @@
 class Room
 {
     public:
-        Room(const string& name = "Generic Room");
+        Room(const string& name = "Generic Room", int MapIndex = 0);
         void ShowPlayer_and_NPCs();
         void ShowCollectibles();
         //returns TRUE if RemoveCollectible was successful
@@ -16,6 +16,7 @@ class Room
         void AddCollectible(Item collectible);
         void TalkTo(string NPCName);
         void Look();
+        int m_MapIndex;
     private:
         std::string m_Name;
         std::vector<Item> m_Collectibles;

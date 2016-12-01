@@ -75,11 +75,11 @@ Node* Node::ReturnChild(){
     return m_child;
 }
 
-int Node::ShowChildren(int x){
+int Node::ShowSiblings(int x){
     x++;
     cout << x << ". " << this->ReturnString() << "\n";
     if(m_next != NULL){
-        x = m_next->ShowChildren(x);
+        x = m_next->ShowSiblings(x);
     }
     return x;
 }

@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-Room::Room(const string& name):m_Name(name)
+Room::Room(const string& name, int MapIndex):m_Name(name),m_MapIndex(MapIndex)
 {
     //just some default items to throw into the room
     m_Collectibles.push_back(Item("sword"));

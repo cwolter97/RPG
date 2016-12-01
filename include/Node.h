@@ -16,7 +16,7 @@ class Node{
         string ReturnString();
         Node* ReturnChild();
         Node* ReturnNextSibling();
-        int ShowChildren(int x = 0);
+        int ShowSiblings(int x = 0);
         bool Search(string value);
         int m_depth;
 

@@ -63,3 +63,67 @@
 	<stack>
 	<string.h>
 
+1480619786 source:h:\c4gd\rpg-master\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	"Player.h"
+	"Room.h"
+	"Graphs.h"
+
+1480613546 h:\c4gd\rpg-master\include\player.h
+	"Item.h"
+	<vector>
+
+1480613546 h:\c4gd\rpg-master\include\item.h
+	<string>
+	<iostream>
+
+1480616484 h:\c4gd\rpg-master\include\room.h
+	"Item.h"
+	"NPC.h"
+	<vector>
+
+1480613546 h:\c4gd\rpg-master\include\npc.h
+	<string>
+	<vector>
+	"Item.h"
+
+1480613546 h:\c4gd\rpg-master\include\graphs.h
+	<vector>
+	<stack>
+	<string.h>
+
+1480613547 source:h:\c4gd\rpg-master\src\item.cpp
+	"Item.h"
+	<string>
+
+1480615824 source:h:\c4gd\rpg-master\src\node.cpp
+	<Node.h>
+	<string>
+
+1480615833 h:\c4gd\rpg-master\include\node.h
+	<iostream>
+
+1480615832 source:h:\c4gd\rpg-master\src\npc.cpp
+	"NPC.h"
+	"Node.h"
+	"Room.h"
+	<fstream>
+	<string>
+	<iostream>
+	<algorithm>
+
+1480613548 source:h:\c4gd\rpg-master\src\player.cpp
+	"Player.h"
+	<string>
+	<vector>
+	<algorithm>
+	<fstream>
+
+1480616481 source:h:\c4gd\rpg-master\src\room.cpp
+	"Room.h"
+	<vector>
+	<algorithm>
+

@@ -31,8 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="include" />
+			<Add directory="src" />
 		</Compiler>
+		<Unit filename="include/Graphs.h" />
+		<Unit filename="include/Item.h" />
+		<Unit filename="include/NPC.h" />
+		<Unit filename="include/Node.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/Room.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Item.cpp" />
+		<Unit filename="src/NPC.cpp" />
+		<Unit filename="src/Node.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Room.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

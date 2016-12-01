@@ -87,7 +87,7 @@ void NPC::DialogueTree(){
         //says NPC line
         cout << endl << current_node->ReturnString() << endl;
         //shows responses that can be given
-        int actions = current_node->ReturnChild()->ShowChildren();
+        int actions = current_node->ReturnChild()->ShowSiblings();
         bool valid = false;
 
         string chatResponse;
