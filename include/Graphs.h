@@ -9,15 +9,6 @@
 using namespace std;
 
 template<typename T>
-class GraphVertex{
-    public:
-        GraphVertex(T node) : m_node(node) {}
-        T GetNode(){ return m_node; }
-    private:
-        T m_node;
-};
-
-template<typename T>
 class Graph{
     public:
         Graph(int numVerts) : m_maxVerts(numVerts), m_adjMatrix(NULL){
@@ -50,7 +41,7 @@ class Graph{
                 return false;
             }
 
-            m_vertices.push_back(GraphVertex<T>(node));
+            m_vertices.push_back(node);
             return true;
         }
 
@@ -63,10 +54,10 @@ class Graph{
             return (m_adjMatrix[index1][index2] == 1);
         }
 
+        vector<T> m_vertices;
     private:
-        vector<GraphVertex<T> > m_vertices;
-        int m_maxVerts;
 
+        int m_maxVerts;
         char **m_adjMatrix;
 };
 #endif // _GRAPH_H_

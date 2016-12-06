@@ -127,3 +127,67 @@
 	<vector>
 	<algorithm>
 
+1481049146 source:c:\users\wolterc8960\desktop\rpg-master\main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	"Player.h"
+	"Room.h"
+	"Graphs.h"
+
+1481046761 c:\users\wolterc8960\desktop\rpg-master\include\player.h
+	"Item.h"
+	<vector>
+
+1481046761 c:\users\wolterc8960\desktop\rpg-master\include\item.h
+	<string>
+	<iostream>
+
+1481046761 c:\users\wolterc8960\desktop\rpg-master\include\room.h
+	"Item.h"
+	"NPC.h"
+	<vector>
+
+1481046761 c:\users\wolterc8960\desktop\rpg-master\include\npc.h
+	<string>
+	<vector>
+	"Item.h"
+
+1481049219 c:\users\wolterc8960\desktop\rpg-master\include\graphs.h
+	<vector>
+	<stack>
+	<string.h>
+
+1481046761 source:c:\users\wolterc8960\desktop\rpg-master\src\item.cpp
+	"Item.h"
+	<string>
+
+1481046761 source:c:\users\wolterc8960\desktop\rpg-master\src\node.cpp
+	<Node.h>
+	<string>
+
+1481046761 c:\users\wolterc8960\desktop\rpg-master\include\node.h
+	<iostream>
+
+1481046761 source:c:\users\wolterc8960\desktop\rpg-master\src\npc.cpp
+	"NPC.h"
+	"Node.h"
+	"Room.h"
+	<fstream>
+	<string>
+	<iostream>
+	<algorithm>
+
+1481046761 source:c:\users\wolterc8960\desktop\rpg-master\src\player.cpp
+	"Player.h"
+	<string>
+	<vector>
+	<algorithm>
+	<fstream>
+
+1481047545 source:c:\users\wolterc8960\desktop\rpg-master\src\room.cpp
+	"Room.h"
+	<vector>
+	<algorithm>
+

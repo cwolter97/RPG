@@ -47,6 +47,7 @@ int main()
     cout << "\nGenerating your first room...\n";
 
     //create rooms
+    if(1){ //used to collapse code for readabililty
     Room room1("Room 1", 0);
     Room room2("Room 2", 1);
     Room room3("Room 3", 2);
@@ -65,8 +66,9 @@ int main()
     WorldMap.attachEdge(1,4);
     WorldMap.attachEdge(1,2);
     WorldMap.attachEdge(2,3);
+    }
 
-    //pointer to current room so main game loop doesn't have to test for several rooms
+    //Start of game, start in room 1.
     pCurrentRoom = &room1;
 
     //main game loop
@@ -135,6 +137,7 @@ int main()
             }while(!valid);
 
             //Select and change room here
+            pCurrentRoom = &(WorldMap.m_vertices[RoomIndex]);
 
         }else
         if(pCommand=="stats"){

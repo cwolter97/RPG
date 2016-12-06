@@ -13,6 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-fpermissive" />
+					<Add option="-fexceptions" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
