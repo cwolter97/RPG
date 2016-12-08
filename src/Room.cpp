@@ -11,6 +11,7 @@ Room::Room(const string& name, int MapIndex):m_Name(name),m_MapIndex(MapIndex)
     m_NPCs.push_back(Bel);
     Bel.AddItemToInv(Item("Hocus Pocus by Focus"));
     Bel.AddItemToInv(Item("HUGESWORD"));
+    m_isLocked = false;
 }
 
 void Room::ShowCollectibles(){

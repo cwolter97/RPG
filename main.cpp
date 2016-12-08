@@ -26,11 +26,12 @@ int main()
     string pCommand;
     Player* pPlayer = 0; //pointers used for current player and room
     Room* pCurrentRoom = 0;
+    Room* pLastRoom = 0;
     Player player;
     //character creation
     cout << "Super Awesome Coolio Fun RPG Game Thingy!\n\n";
 
-    //create player, then create pointer to player (useful for later with multiple players)
+    //create player, then create pointer to player
 
     ifstream myfile("player.dat");
     if(myfile.is_open()){
@@ -47,12 +48,12 @@ int main()
     cout << "\nGenerating your first room...\n";
 
     //create rooms
-    if(1){ //used to collapse code for readabililty
     Room room1("Room 1", 0);
     Room room2("Room 2", 1);
     Room room3("Room 3", 2);
     Room room4("Room 4", 3);
     Room room5("Room 5", 4);
+    room3.m_isLocked = true;
 
     //create WorldMap and start connecting rooms
     Graph<Room> WorldMap(MAX_ROOMS);
@@ -66,13 +67,13 @@ int main()
     WorldMap.attachEdge(1,4);
     WorldMap.attachEdge(1,2);
     WorldMap.attachEdge(2,3);
-    }
 
     //Start of game, start in room 1.
     pCurrentRoom = &room1;
 
     //main game loop
     do{
+        cout << "You are in " << pCurrentRoom->m_Name;
         cout << "\nGive a command\n>>";
         getline(cin, pCommand);
         //make the input into all lowercase to match all command cases(HeLP == help)
@@ -137,8 +138,14 @@ int main()
             }while(!valid);
 
             //Select and change room here
+            pLastRoom = pCurrentRoom;
             pCurrentRoom = &(WorldMap.m_vertices[RoomIndex]);
 
+            //test to see if room is locked, puts player in last room is true;
+            if(pCurrentRoom->m_isLocked){
+                cout << pCurrentRoom->m_Name << " is locked...\n";
+                pCurrentRoom = pLastRoom;
+            }
         }else
         if(pCommand=="stats"){
             pPlayer->ShowStats();

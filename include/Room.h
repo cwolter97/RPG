@@ -17,8 +17,9 @@ class Room
         void TalkTo(string NPCName);
         void Look();
         int m_MapIndex;
-    private:
+        bool m_isLocked;
         std::string m_Name;
+    private:
         std::vector<Item> m_Collectibles;
         std::vector<NPC> m_NPCs;
 };
