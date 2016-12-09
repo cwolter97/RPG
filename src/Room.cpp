@@ -7,10 +7,7 @@ Room::Room(const string& name, int MapIndex):m_Name(name),m_MapIndex(MapIndex)
     //just some default items to throw into the room
     m_Collectibles.push_back(Item("sword"));
     m_Collectibles.push_back(Item("shield"));
-    NPC Bel("Bel Drock");
-    m_NPCs.push_back(Bel);
-    Bel.AddItemToInv(Item("Hocus Pocus by Focus"));
-    Bel.AddItemToInv(Item("HUGESWORD"));
+
     m_isLocked = false;
 }
 
@@ -36,6 +33,14 @@ bool Room::RemoveCollectible(string ItemName){
 }
 void Room::AddCollectible(Item ItemName){
     m_Collectibles.push_back(ItemName);
+}
+
+void Room::AddNPC(string name){
+    m_NPCs.push_back(NPC(name));
+}
+
+void Room::AddNPC(NPC name){
+    m_NPCs.push_back(name);
 }
 
 void Room::ShowPlayer_and_NPCs(){
@@ -68,4 +73,15 @@ void Room::Look(){
     //ShowExits();
 }
 
+void Room::lock(){
+    m_isLocked = true;
+}
+
+void Room::unlock(){
+    m_isLocked = false;
+}
+
+bool Room::isLocked(){
+    return m_isLocked;
+}
 

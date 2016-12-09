@@ -1,22 +1,19 @@
 bel drock
-*Hey (:
-**Hi.
-***What's Up
-****Nothing.
-*****ACTION:CLOSECHAT
-****Nothing, you?
-*****Just trying to talk to you...
-******Cool.
-*******ACTION:CLOSECHAT
-**Heyyy (;
-***how YOU doin ;)
-****im good, you :)
-*****just talking to you ;)
-******cool :)
-*******anything you want to see? ;)
-********A SWORD THAT CAN KILL ANYTHING
-*********ACTION:GIVE:HUGESWORD
-********Dank Memes.
-*********ACTION:GIVE:Hocus Pocus by Focus
-********I want to see you stop talking!
-*********ACTION:CLOSECHAT
+*Welcome to our cavern.
+**I heard you need my help.
+***We do. But first you will need to retrieve a weapon! There has to be something in here somewhere...
+****I will find it. Don't worry.
+*****Good luck my friend.
+**I don't need your welcoming committee.
+***Goodbye.
+newdialogue
+charlie
+*What are you here for?
+**To slay the beasts.
+***You are bold. Good luck to you.
+****Thank you.
+*****ACTION:GIVE:SWORD
+**What's it to ya?
+*** 
+newdialogue
+Ruskie Shakel

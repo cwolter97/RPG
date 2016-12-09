@@ -86,6 +86,10 @@ void NPC::DialogueTree(){
     do{
         //says NPC line
         cout << endl << current_node->ReturnString() << endl;
+        if(!(current_node->HasChild())){
+            ActionAvailable = true;
+            continue;
+        }
         //shows responses that can be given
         int actions = current_node->ReturnChild()->ShowSiblings();
         bool valid = false;
@@ -120,14 +124,15 @@ void NPC::DialogueTree(){
             current_node = current_node->ReturnNextSibling();
         }
 
+        //Moves to next NPC chat/action
+        current_node = current_node->ReturnChild();
+
         //tests to see if chat is done
-        string teststring = current_node->ReturnChild()->ReturnString();
+        string teststring = current_node->ReturnString();
         if(teststring.find("ACTION") != string::npos){
             ActionAvailable = true;
         }
 
-        //Moves to next NPC chat/action
-        current_node = current_node->ReturnChild();
     }while(!ActionAvailable);
 
     string actionString = current_node->ReturnString();

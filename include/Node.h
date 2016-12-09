@@ -11,6 +11,7 @@ class Node{
         ~Node();
 
         void AddChild(Node *node);
+        bool HasChild();
         void AddSibling(Node *node);
         void DisplayTree();
         string ReturnString();

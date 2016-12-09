@@ -75,6 +75,10 @@ Node* Node::ReturnChild(){
     return m_child;
 }
 
+bool Node::HasChild(){
+    return (m_child != NULL);
+}
+
 int Node::ShowSiblings(int x){
     x++;
     cout << x << ". " << this->ReturnString() << "\n";

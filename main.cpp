@@ -15,7 +15,7 @@ Player createNewPlayer();
 Player loadPlayerFromSave();
 void commandHelp();
 
-enum STATS {NAME, CLASS, MAXHEALTH, HEALTH, MAXMANA, MANA, LEVEL};
+enum STATS {NAME, CLASS, MAXHEALTH, HEALTH, STRENGTH, LEVEL};
 const int MAX_ROOMS = 5;
 
 //overloads the tolower() function to return strings in all lowercase / created compact because not important to game
@@ -49,11 +49,16 @@ int main()
 
     //create rooms
     Room room1("Room 1", 0);
+        room1.AddNPC("Bel Drock");
     Room room2("Room 2", 1);
+        room2.lock();
     Room room3("Room 3", 2);
     Room room4("Room 4", 3);
+        room4.lock();
     Room room5("Room 5", 4);
-    room3.m_isLocked = true;
+        NPC charl("Charlie");
+        charl.AddItemToInv(Item("Sword"));
+        room5.AddNPC(charl);
 
     //create WorldMap and start connecting rooms
     Graph<Room> WorldMap(MAX_ROOMS);
@@ -73,7 +78,6 @@ int main()
 
     //main game loop
     do{
-        cout << "You are in " << pCurrentRoom->m_Name;
         cout << "\nGive a command\n>>";
         getline(cin, pCommand);
         //make the input into all lowercase to match all command cases(HeLP == help)
@@ -109,7 +113,7 @@ int main()
             //default to false, change to true if those rooms are connected @ L:113
             bool ValidMapIndex[MAX_ROOMS] = {};
 
-            cout << "You can go to rooms:\n";
+            cout << "You can see these rooms:\n";
             for(int i = 0; i < MAX_ROOMS; i++){
                 if(WorldMap.isAttached(pCurrentRoom->m_MapIndex, i)){
                     cout << i+1 << endl;
@@ -142,10 +146,11 @@ int main()
             pCurrentRoom = &(WorldMap.m_vertices[RoomIndex]);
 
             //test to see if room is locked, puts player in last room is true;
-            if(pCurrentRoom->m_isLocked){
-                cout << pCurrentRoom->m_Name << " is locked...\n";
+            if(pCurrentRoom->isLocked()){
+                cout << pCurrentRoom->m_Name << " is locked...\n\n";
                 pCurrentRoom = pLastRoom;
             }
+            cout << "You are in " << pCurrentRoom->m_Name << endl;
         }else
         if(pCommand=="stats"){
             pPlayer->ShowStats();
@@ -263,7 +268,7 @@ Player loadPlayerFromSave(){
     //Create new player with loaded stats from file then return player
     //string name = stats[NAME];
     //string classs = stats[CLASS];
-    Player player(stats[NAME],stats[CLASS],intStats[MAXHEALTH],intStats[HEALTH],intStats[MAXMANA],intStats[MANA],intStats[LEVEL]);
+    Player player(stats[NAME],stats[CLASS],intStats[MAXHEALTH],intStats[HEALTH],intStats[STRENGTH],intStats[LEVEL]);
     return player;
 
 }

@@ -1,8 +1,7 @@
-name=cody w
-class=Gladiator
+name=Zony
+class=Bard
 maxhealth=10
 health=10
-maxmana=5
-mana=5
+strength=5
 level=1
 end

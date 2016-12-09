@@ -6,7 +6,7 @@
 
 class Player{
     public:
-        Player(const string& name="Player", const string& pClass="Bard", int maxHealth = 10, int health = 10, int maxmana = 5, int mana = 5, int level = 1);
+        Player(const string& name="Player", const string& pClass="Bard", int maxHealth = 10, int health = 10, int strength = 5, int level = 1);
         string GetName();
         string GetClass();
 
@@ -15,10 +15,8 @@ class Player{
         int GetHealth();
         void SetHealth(int add = 0);
 
-        int GetMaxMana();
-        void SetMaxMana(int add = 0);
-        int GetMana();
-        void SetMana(int add = 0);
+        int GetStrength();
+        void SetStrength(int add = 0);
 
         int GetLevel();
         void SetLevel(int add = 0);
@@ -38,8 +36,7 @@ class Player{
         int m_MaxHealth;
         int m_Health;
 
-        int m_MaxMana;
-        int m_Mana;
+        int m_Strength;
 
         int m_Level;
 

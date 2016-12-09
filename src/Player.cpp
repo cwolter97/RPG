@@ -16,14 +16,13 @@ bool operator==(const string itemNameX,const Item& ItemY){
     return (itemNameX == ItemY.m_Name);
 }
 
-Player::Player(const string& name, const string& pClass, int maxhealth, int health, int maxmana, int mana, int level){
+Player::Player(const string& name, const string& pClass, int maxhealth, int health, int strength, int level){
     m_Name = name;
     m_Class = pClass;
     //Level 1 Starter Stats
     m_MaxHealth = maxhealth;
     m_Health = health;
-    m_MaxMana = maxmana;
-    m_Mana = mana;
+    m_Strength = strength;
     m_Level = level;
 }
 
@@ -36,10 +35,8 @@ void Player::SetMaxHealth(int add){ m_MaxHealth += add; }
 int Player::GetHealth(){ return m_Health; }
 void Player::SetHealth(int add){ m_Health =+ add; }
 
-int Player::GetMaxMana(){ return m_MaxMana; }
-void Player::SetMaxMana(int add){ m_MaxMana += add; }
-int Player::GetMana(){ return m_Mana; }
-void Player::SetMana(int add){ m_Mana += add; }
+int Player::GetStrength(){ return m_Strength; }
+void Player::SetStrength(int add){ m_Strength += add; }
 
 int Player::GetLevel(){ return m_Level; }
 void Player::SetLevel(int add){ m_Level += add; }
@@ -83,8 +80,7 @@ void Player::Save(){
         saveFile << "class=" << m_Class << std::endl;
         saveFile << "maxhealth=" << m_MaxHealth << std::endl;
         saveFile << "health=" << m_Health << std::endl;
-        saveFile << "maxmana=" << m_MaxMana << std::endl;
-        saveFile << "mana=" << m_Mana << std::endl;
+        saveFile << "strength=" << m_Strength << std::endl;
         saveFile << "level=" << m_Level << std::endl;
         saveFile << "end" << std::endl;
         std::cout << "\nFile successfully saved!!\n";
@@ -94,10 +90,9 @@ void Player::Save(){
 }
 
 void Player::ShowStats(){
-    std::cout << "Class = " << m_Class << std::endl;
+    std::cout << "\nClass = " << m_Class << std::endl;
     std::cout << "Max Health = " << m_MaxHealth << std::endl;
     std::cout << "Health = " << m_Health << std::endl;
-    std::cout << "Max Mana = " << m_MaxMana << std::endl;
-    std::cout << "Mana = " << m_Mana << std::endl;
+    std::cout << "Strength = " << m_Strength << std::endl;
     std::cout << "Level = " << m_Level << std::endl;
 }
