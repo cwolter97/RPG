@@ -2,13 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-Room::Room(const string& name, int MapIndex):m_Name(name),m_MapIndex(MapIndex)
+Room::Room(const string& name, int MapIndex):m_Name(name),m_MapIndex(MapIndex),m_isLocked(false)
 {
-    //just some default items to throw into the room
-    m_Collectibles.push_back(Item("sword"));
-    m_Collectibles.push_back(Item("shield"));
-
-    m_isLocked = false;
 }
 
 void Room::ShowCollectibles(){
@@ -52,25 +47,31 @@ void Room::ShowPlayer_and_NPCs(){
 }
 
 void Room::TalkTo(string NPCName){
-    bool talking = false;
 
     for(std::vector<NPC>::iterator iter = m_NPCs.begin(); iter != m_NPCs.end(); iter++){
         if(iter->GetName() == NPCName){
             iter->Talk();
-            talking = true;
+            return;
         }
     }
 
-    if(!talking){
-        std::cout << "\nCould not find NPC " << NPCName << "...";
-    }
+    std::cout << "\nCould not find NPC " << NPCName << "...";
+
 }
 
 void Room::Look(){
     std::cout << "You look around and see...";
+    std::cout << "\n" << SayDescription() << "\n\n";
     ShowCollectibles();
     ShowPlayer_and_NPCs();
-    //ShowExits();
+}
+
+std::string Room::SayDescription(){
+    return m_Description;
+}
+
+void Room::SetDescription(string d){
+    m_Description = d;
 }
 
 void Room::lock(){
@@ -78,7 +79,8 @@ void Room::lock(){
 }
 
 void Room::unlock(){
-    m_isLocked = false;
+    m_isLocked = false
+    ;
 }
 
 bool Room::isLocked(){

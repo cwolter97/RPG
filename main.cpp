@@ -57,7 +57,7 @@ int main()
         room4.lock();
     Room room5("Room 5", 4);
         NPC charl("Charlie");
-        charl.AddItemToInv(Item("Sword"));
+        charl.AddItemToInv(Item("SWORD"));
         room5.AddNPC(charl);
 
     //create WorldMap and start connecting rooms
@@ -78,6 +78,15 @@ int main()
 
     //main game loop
     do{
+        int levelRequirement = pPlayer->GetLevel()*100;
+        if(pPlayer->GetExperience() > levelRequirement){
+            pPlayer->AddExperience(-(levelRequirement));
+            pPlayer->SetLevel(1);
+            pPlayer->SetMaxHealth(10);
+            pPlayer->SetHealth(pPlayer->GetMaxHealth());
+            pPlayer->SetStrength(10);
+            cout << "\nYou have leveled up, you are now level " << pPlayer->GetLevel() << "!\n";
+        }
         cout << "\nGive a command\n>>";
         getline(cin, pCommand);
         //make the input into all lowercase to match all command cases(HeLP == help)
@@ -135,7 +144,7 @@ int main()
                         if(ValidMapIndex[RoomIndex] && RoomIndex < MAX_ROOMS){
                             valid = true;
                         }
-                        if(isalpha(GoToRoom[0])){ valid = false;}
+                        if(isalpha(GoToRoom[0])){ valid = false; }
                     }catch(int e){}
                 }
                 //if the conversion fails, retry the input

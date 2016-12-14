@@ -12,7 +12,7 @@ charlie
 **To slay the beasts.
 ***You are bold. Good luck to you.
 ****Thank you.
-*****ACTION:GIVE:SWORD
+*****ACTION:GIVE:SWORD:ACTION:UNLOCK:2:
 **What's it to ya?
 *** 
 newdialogue

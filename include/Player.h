@@ -26,6 +26,9 @@ class Player{
         void AddItemToInv(Item ItemName);
         void DisplayInventory();
 
+        int GetExperience();
+        void AddExperience(int add);
+
         void Save();
         void ShowStats();
 
@@ -39,7 +42,7 @@ class Player{
         int m_Strength;
 
         int m_Level;
-
+        int m_Experience;
         std::vector<Item> m_Inventory;
 };
 

@@ -18,7 +18,11 @@ class Room
         void AddCollectible(Item collectible);
         void TalkTo(string NPCName);
         void Look();
+
         int m_MapIndex;
+
+        std::string SayDescription();
+        void SetDescription(std::string d);
 
         void lock();
         void unlock();
@@ -27,6 +31,7 @@ class Room
         std::string m_Name;
     private:
         bool m_isLocked;
+        std::string m_Description;
         std::vector<Item> m_Collectibles;
         std::vector<NPC> m_NPCs;
 };

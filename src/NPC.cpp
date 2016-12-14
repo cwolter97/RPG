@@ -26,6 +26,7 @@ void NPC::LoadDialogue(string NPC_Name){
     if(diaFile.is_open()){
         while(getline(diaFile, line)){
             if((line == End_of_Dialogue) && found_npc_dialogue){
+
                 return;
             }
 
@@ -41,8 +42,6 @@ void NPC::LoadDialogue(string NPC_Name){
 }
 
 void NPC::DialogueTree(){
-    //std::vector<string>::iterator roottext = m_RawDialogue.begin();
-
     int arraysize = m_RawDialogue.size();
 
     Node *nodeArray[arraysize];
@@ -135,12 +134,17 @@ void NPC::DialogueTree(){
 
     }while(!ActionAvailable);
 
-    string actionString = current_node->ReturnString();
+    string itemDrop;
 
-    if(actionString.find("CLOSECHAT") != string::npos){
-        return;
+    string actionString = current_node->ReturnString();
+    int x = actionString.find("GIVE");
+    if(x){
+        int itemSpot = actionString.find(":",x+5);
+        string itemDrop = actionString.substr(x+5,(itemSpot - (x+5)));
     }
 
+
+    return itemDrop;
 }
 
 void NPC::Talk(){
@@ -153,7 +157,7 @@ bool NPC::DropItemFromInv(string ItemName){
     std::vector<Item>::iterator iter = std::find(m_Inventory.begin(), m_Inventory.end(), ItemName);
     //If it didn't find it, say so and leave
     if(iter==m_Inventory.end()){
-        std::cout << "\nObject does not exist!";
+        std::cout << "\nI don't have that anymore, sorry!";
         return false;
     }
     //if it found, erase it and return true

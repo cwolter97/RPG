@@ -41,6 +41,8 @@ void Player::SetStrength(int add){ m_Strength += add; }
 int Player::GetLevel(){ return m_Level; }
 void Player::SetLevel(int add){ m_Level += add; }
 
+int Player::GetExperience(){ return m_Experience; }
+void Player::AddExperience(int add){ m_Experience += add; }
 
 bool Player::DropItemFromInv(string ItemName){
     //Looks for ItemName in the vector
